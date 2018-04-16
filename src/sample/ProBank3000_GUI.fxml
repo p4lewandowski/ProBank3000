@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TabPane prefHeight="500.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="WELCOME">
+            <content>
+              <AnchorPane maxHeight="400.0" minHeight="200.0" minWidth="200.0" prefHeight="261.0" prefWidth="757.0">
+                     <children>
+                        <ImageView fitHeight="411.0" fitWidth="750.0" layoutY="3.0" pickOnBounds="true" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="-8.0">
+                           <image>
+                              <Image url="@../../Logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Account Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane prefHeight="805.0" prefWidth="1017.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                            <Tab text="Add User">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <Button layoutX="228.0" layoutY="341.0" mnemonicParsing="false" onAction="#add_user" prefHeight="25.0" prefWidth="296.0" text="ADD USER" />
+                                          <VBox layoutX="162.0" layoutY="35.0" prefHeight="274.0" prefWidth="169.0">
+                                             <children>
+                                                <Label prefHeight="0.0" prefWidth="100.0" text="Name" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="Surname" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="CITY" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="129.0" text="STREET" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="173.0" text="HOME NUMBER" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="PESEL" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="PHONE" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="94.0" text="FUNDS" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="382.0" layoutY="35.0" prefHeight="274.0" prefWidth="141.0">
+                                             <children>
+                                                <TextField fx:id="add_n" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_sn" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_c" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_cst" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_cn" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_p" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_num" prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField fx:id="add_f" prefHeight="33.0" prefWidth="141.0" />
+                                             </children>
+                                          </VBox>
+                                          <Separator layoutX="370.0" layoutY="35.0" orientation="VERTICAL" prefHeight="264.0" prefWidth="10.0" />
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                              <Tab text="Delete User">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <VBox layoutX="231.0" layoutY="35.0" prefHeight="274.0" prefWidth="100.0">
+                                             <children>
+                                                <Label prefHeight="0.0" prefWidth="100.0" text="Name" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="Surname" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="CITY" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="STREET" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="NUMBER" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="PESEL" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="101.0" text="PHONE" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label prefHeight="34.0" prefWidth="94.0" text="FUNDS" textAlignment="CENTER">
+                                                   <font>
+                                                      <Font size="23.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="382.0" layoutY="35.0" prefHeight="274.0" prefWidth="141.0">
+                                             <children>
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                                <TextField prefHeight="33.0" prefWidth="141.0" />
+                                             </children>
+                                          </VBox>
+                                          <Button layoutX="228.0" layoutY="341.0" mnemonicParsing="false" onAction="#show_all" prefHeight="25.0" prefWidth="296.0" text="DELETE USER" />
+                                          <Separator layoutX="373.0" layoutY="40.0" orientation="VERTICAL" prefHeight="256.0" prefWidth="3.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Funds Management">
+              <content>
+                <AnchorPane maxHeight="500.0" minHeight="1.0" minWidth="0.0" prefHeight="272.0" prefWidth="757.0">
+                     <children>
+                        <HBox layoutX="5.0" layoutY="3.0" prefHeight="237.0" prefWidth="746.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="241.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="44.0" prefWidth="250.0" text="Withdraw Money" textAlignment="CENTER" underline="true">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="254.0" text="PESEL">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="236.0" text="Amount of money">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox prefHeight="200.0" prefWidth="250.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="46.0" prefWidth="250.0" text="Deposit Money" textAlignment="CENTER" underline="true">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="254.0" text="PESEL">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="57.0" prefWidth="236.0" text="Amount of money">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="15.0" />
+                              <VBox prefHeight="200.0" prefWidth="250.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="45.0" prefWidth="247.0" text="Transfer Money" underline="true">
+                                       <font>
+                                          <Font size="17.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="17.0" prefWidth="254.0" text="PESEL of a sender">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="41.0" prefWidth="236.0" text="PESEL of a reciver">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="41.0" prefWidth="236.0" text="Amount of money">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField />
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                           </children>
+                        </HBox>
+                        <Separator layoutX="15.0" layoutY="249.0" prefHeight="1.0" prefWidth="735.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Search For User">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</GridPane>
