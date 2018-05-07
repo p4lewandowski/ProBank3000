@@ -1,7 +1,5 @@
 package sample;
-import com.healthmarketscience.sqlbuilder.InsertQuery;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
@@ -12,7 +10,6 @@ class DB_CONNECTOR {
     @FXML private TextField add_n;
 
     private Connection conn;
-    FXMLLoader fxmlLoader = new FXMLLoader();
 
     public Connection Get_Connection() {
         return conn;
@@ -47,17 +44,15 @@ class DB_CONNECTOR {
             System.exit(128);}
     }
 
-    public void Show_All() {
-        try{
-            //create the statement object
+    public ResultSet Show_All(){
+        try {
             Statement stmt = conn.createStatement();
-            //execute query
             ResultSet rs = stmt.executeQuery("select * from bank_users");
-            while (rs.next())
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
-        } catch (SQLException e) {
+            return rs;
+        } catch(SQLException e){
             e.printStackTrace();
-            System.exit(128);}
+            return null;
+        }
     }
 
     public void Add_User(String NAME, String SURNAME,String ADDRESS_CITY,String ADDRESS_STREET, String ADDRESS_NUMBER,
@@ -67,16 +62,57 @@ class DB_CONNECTOR {
                     " ADDRESS_NUMBER, PESEL, PHONE_NUMBER, FUNDS) VALUES ('" + NAME + "', '" + SURNAME + "', '"
                 + ADDRESS_CITY + "', '" + ADDRESS_STREET + "', '" + ADDRESS_NUMBER + "', "
                 + PESEL + ", '" + PHONE_NUMBER + "', " + FUNDS + ")";
-        System.out.println(selectQuery);
+        //System.out.println(selectQuery);
         ResultSet rs = stmt.executeQuery(selectQuery);
 
     }
+
+    public void DeleteUser(String delID, String delPESEL) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String selectQuery = null;
+        if(delID != null && !delID.isEmpty()) {
+            selectQuery = "DELETE FROM BANK_USERS WHERE USER_ID = " + delID;
+        }
+        if(delPESEL != null && !delPESEL.isEmpty()) {
+            selectQuery = "DELETE FROM BANK_USERS WHERE PESEL = " + delPESEL;
+        }
+        stmt.executeQuery(selectQuery);
+    }
+
+    public void WithdrawMoney(String uID, String uFunds) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
+                + " WHERE USER_ID = " + uID;
+        stmt.executeQuery(selectQuery);
+    }
+
+    public void DepositMoney(String uID, String uFunds) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
+                + " WHERE USER_ID = " + uID;
+        stmt.executeQuery(selectQuery);
+    }
+
+    public void TransferMoney(String uIDs, String uIDr, String uFunds) throws SQLException{
+        Statement stmt = conn.createStatement();
+        Long availableFunds = null;
+        String selectQueryS =  "SELECT FUNDS FROM BANK_USERS WHERE USER_ID = " + uIDs;
+        ResultSet rs = stmt.executeQuery(selectQueryS);
+        while (rs.next()) {
+            availableFunds = Long.parseLong(rs.getString(1), 10);
+        }
+        if(availableFunds<Long.parseLong(uIDs, 10))
+        {
+            throw new java.sql.SQLException();
+        }
+        else
+        {
+            String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
+                    + " WHERE USER_ID = " + uIDr;
+            stmt.executeQuery(selectQuery);
+            selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
+                    + " WHERE USER_ID = " + uIDs;
+            stmt.executeQuery(selectQuery);
+        }
+    }
 }
-
-//    ResultSet rs = stmt.executeQuery("INSERT INTO BANK_USERS (NAME, SURNAME, ADDRESS_CITY, ADDRESS_STREET," +
-//                    " ADDRESS_NUMBER, PESEL, PHONE_NUMBER, FUNDS) VALUES ('%s', '%s', '%s', '%s', '%s', %d, '%s', %d)",
-//            NAME, SURNAME, ADDRESS_CITY, ADDRESS_STREET, ADDRESS_NUMBER, PESEL, PHONE_NUMBER, FUNDS);
-
-//        ResultSet rs = stmt.executeQuery("INSERT INTO BANK_USERS (NAME, SURNAME, ADDRESS_CITY, ADDRESS_STREET," +
-//                " ADDRESS_NUMBER, PESEL, PHONE_NUMBER, FUNDS) VALUES ('%s', '%s', '%s', '%s', '%s', %d, '%s', %d)",
-//                "Krzysztof", "Wladzik", "Konin", "Zielona", "12 A", 952304233, "+48692346942", 134214324);
