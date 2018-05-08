@@ -34,8 +34,6 @@ class DB_CONNECTOR {
         return true;
     }
 
-
-
     public void Close_Connection(){
         try {
             conn.close();
@@ -44,6 +42,7 @@ class DB_CONNECTOR {
             System.exit(128);}
     }
 
+    // SQL FUNCTIONS //
     public ResultSet Show_All(){
         try {
             Statement stmt = conn.createStatement();
@@ -63,19 +62,14 @@ class DB_CONNECTOR {
                 + ADDRESS_CITY + "', '" + ADDRESS_STREET + "', '" + ADDRESS_NUMBER + "', "
                 + PESEL + ", '" + PHONE_NUMBER + "', " + FUNDS + ")";
         //System.out.println(selectQuery);
-        ResultSet rs = stmt.executeQuery(selectQuery);
+        ResultSet rsAdd = stmt.executeQuery(selectQuery);
 
     }
 
-    public void DeleteUser(String delID, String delPESEL) throws SQLException{
+    public void DeleteUser(String delID) throws SQLException{
         Statement stmt = conn.createStatement();
         String selectQuery = null;
-        if(delID != null && !delID.isEmpty()) {
-            selectQuery = "DELETE FROM BANK_USERS WHERE USER_ID = " + delID;
-        }
-        if(delPESEL != null && !delPESEL.isEmpty()) {
-            selectQuery = "DELETE FROM BANK_USERS WHERE PESEL = " + delPESEL;
-        }
+        selectQuery = "DELETE FROM BANK_USERS WHERE USER_ID = " + delID;
         stmt.executeQuery(selectQuery);
     }
 
@@ -97,9 +91,9 @@ class DB_CONNECTOR {
         Statement stmt = conn.createStatement();
         Long availableFunds = null;
         String selectQueryS =  "SELECT FUNDS FROM BANK_USERS WHERE USER_ID = " + uIDs;
-        ResultSet rs = stmt.executeQuery(selectQueryS);
-        while (rs.next()) {
-            availableFunds = Long.parseLong(rs.getString(1), 10);
+        ResultSet rsTransfer = stmt.executeQuery(selectQueryS);
+        while (rsTransfer.next()) {
+            availableFunds = Long.parseLong(rsTransfer.getString(1), 10);
         }
         if(availableFunds<Long.parseLong(uIDs, 10))
         {
@@ -114,5 +108,23 @@ class DB_CONNECTOR {
                     + " WHERE USER_ID = " + uIDs;
             stmt.executeQuery(selectQuery);
         }
+    }
+
+    public ResultSet SearchUser(String searchText, Object searchParameter) throws SQLException{
+        Statement stmt = conn.createStatement();
+        String selectQuery = null;
+        if(searchParameter == "ClientID"){
+                selectQuery = "SELECT * FROM BANK_USERS WHERE USER_ID LIKE " + searchText;}
+        else if(searchParameter == "PESEL"){
+                selectQuery = "SELECT * FROM BANK_USERS WHERE PESEL LIKE " + searchText;}
+        else if(searchParameter == "Name"){
+                selectQuery =  "SELECT * FROM BANK_USERS WHERE NAME LIKE '" + searchText + "'";}
+        else if(searchParameter == "Surname"){
+                selectQuery =  "SELECT * FROM BANK_USERS WHERE SURNAME LIKE '" + searchText + "'";}
+        else if(searchParameter == "City"){
+                selectQuery =  "SELECT * FROM BANK_USERS WHERE ADDRESS_CITY LIKE '" + searchText + "'";}
+
+        ResultSet rsSearch = stmt.executeQuery(selectQuery);
+        return rsSearch;
     }
 }

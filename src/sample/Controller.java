@@ -24,7 +24,6 @@ public class Controller {
 
     // Delete user
     @FXML private TextField del_id;
-    @FXML private TextField del_p;
 
     // Withdraw money
     @FXML private TextField with_id;
@@ -54,8 +53,19 @@ public class Controller {
     //Search
     @FXML private ChoiceBox searchChoiceBox;
     @FXML private TextField searchText;
+    @FXML private TableView<BankUser> SearchTableView;
+    @FXML private TableColumn<BankUser, Integer> colIdS;
+    @FXML private TableColumn<BankUser, String> colNameS;
+    @FXML private TableColumn<BankUser, String> colSurnameS;
+    @FXML private TableColumn<BankUser, String> colCityS;
+    @FXML private TableColumn<BankUser, String> colStreetS;
+    @FXML private TableColumn<BankUser, String> colHomenumberS;
+    @FXML private TableColumn<BankUser, Integer> colPESELS;
+    @FXML private TableColumn<BankUser, String> colPhoneS;
+    @FXML private TableColumn<BankUser, Integer> colFundsS;
 
     private ObservableList<BankUser> bankData;
+    private ObservableList<BankUser> bankSearchData;
 
     DB_CONNECTOR db = new DB_CONNECTOR();
 
@@ -63,12 +73,12 @@ public class Controller {
     public Controller() {
         System.out.println("Initializing db connection...");
         db.Connect();
-        //initialize();
     }
 
     @FXML
     void initialize() {
 
+        //Initialize all users table
         colId.setCellValueFactory(new PropertyValueFactory<BankUser, Integer>("userId"));
         colName.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userName"));
         colSurname.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userSurname"));
@@ -79,21 +89,31 @@ public class Controller {
         colPhone.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userPhone"));
         colFunds.setCellValueFactory(new PropertyValueFactory<BankUser, Integer>("userFunds"));
 
-        searchChoiceBox.setItems(FXCollections.observableArrayList(
-                "ClientID", "Name ", "Surname", "PESEL", "City")
-        );
+        //Initialize search table
+        colIdS.setCellValueFactory(new PropertyValueFactory<BankUser, Integer>("userId"));
+        colNameS.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userName"));
+        colSurnameS.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userSurname"));
+        colCityS.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userCity"));
+        colStreetS.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userStreet"));
+        colHomenumberS.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userHomenumber"));
+        colPESELS.setCellValueFactory( new PropertyValueFactory<BankUser, Integer>("userPESEL"));
+        colPhoneS.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userPhone"));
+        colFundsS.setCellValueFactory(new PropertyValueFactory<BankUser, Integer>("userFunds"));
 
-//        AllUsersTableview.getSelectionModel().setCellSelectionEnabled(true);
-//        AllUsersTableview.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        searchChoiceBox.setItems(FXCollections.observableArrayList(
+                "ClientID", "Name", "Surname", "PESEL", "City")
+        );
 
         buildData();
     }
 
+
     public void buildData(){
 
         bankData = FXCollections.observableArrayList();
+        ResultSet rs = null;
+        rs = db.Show_All();
         try {
-            ResultSet rs = db.Show_All();
             while (rs.next()) {
                 BankUser bu = new BankUser();
                 bu.userId.set(rs.getInt(1));
@@ -131,8 +151,8 @@ public class Controller {
 
     @FXML
     private void del_user(ActionEvent event) throws SQLException {
-        db.DeleteUser(del_id.getText(), del_p.getText());
-        del_p.clear(); del_id.clear();
+        db.DeleteUser(del_id.getText());
+        del_id.clear();
         initialize();
     }
 
@@ -156,4 +176,26 @@ public class Controller {
         tr_id_s.clear(); tr_id_r.clear(); tr_f.clear();
         initialize();
     }
+
+    @FXML
+    private void search_user(ActionEvent event) throws SQLException {
+        ResultSet sRes = db.SearchUser(searchText.getText(), searchChoiceBox.getValue());
+        bankSearchData = FXCollections.observableArrayList();
+        while (sRes.next()) {
+            BankUser bu = new BankUser();
+            bu.userId.set(sRes.getInt(1));
+            bu.userName.set(sRes.getString(2));
+            bu.userSurname.set(sRes.getString(3));
+            bu.userCity.set(sRes.getString(4));
+            bu.userStreet.set(sRes.getString(5));
+            bu.userHomenumber.set(sRes.getString(6));
+            bu.userPESEL.set(sRes.getLong(7));
+            bu.userPhone.set(sRes.getString(8));
+            bu.userFunds.set(sRes.getInt(9));
+
+            bankSearchData.add(bu);
+        }
+        SearchTableView.setItems(bankSearchData);
+    }
+
 }
