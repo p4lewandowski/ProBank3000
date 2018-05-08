@@ -3,10 +3,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.ResultSet;
@@ -54,6 +51,10 @@ public class Controller {
     @FXML private TableColumn<BankUser, String> colPhone;
     @FXML private TableColumn<BankUser, Integer> colFunds;
 
+    //Search
+    @FXML private ChoiceBox searchChoiceBox;
+    @FXML private TextField searchText;
+
     private ObservableList<BankUser> bankData;
 
     DB_CONNECTOR db = new DB_CONNECTOR();
@@ -77,6 +78,10 @@ public class Controller {
         colPESEL.setCellValueFactory( new PropertyValueFactory<BankUser, Integer>("userPESEL"));
         colPhone.setCellValueFactory( new PropertyValueFactory<BankUser, String>("userPhone"));
         colFunds.setCellValueFactory(new PropertyValueFactory<BankUser, Integer>("userFunds"));
+
+        searchChoiceBox.setItems(FXCollections.observableArrayList(
+                "ClientID", "Name ", "Surname", "PESEL", "City")
+        );
 
 //        AllUsersTableview.getSelectionModel().setCellSelectionEnabled(true);
 //        AllUsersTableview.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
