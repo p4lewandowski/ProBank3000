@@ -1,11 +1,9 @@
-package sample;
+package SQL;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-
-import java.io.IOException;
 import java.sql.*;
 
-class DB_CONNECTOR {
+public class DB_CONNECTOR {
 
     @FXML private TextField add_n;
 

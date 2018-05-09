@@ -1,4 +1,4 @@
-package sample;
+package Auxiliary;
 
 public class MutableBool{
     private boolean value;

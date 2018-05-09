@@ -1,4 +1,4 @@
-package sample;
+package Core;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 public class Main extends Application {
 
@@ -16,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("ProBank3000");
         primaryStage.setScene(new Scene(root, 750, 500));
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "App_logo.png" )));
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "../Auxiliary/App_logo.png" )));
 
         //primaryStage.initStyle(StageStyle.UNDECORATED);
 

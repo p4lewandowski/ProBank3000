@@ -1,11 +1,14 @@
-package sample;
+package Core;
+import Auxiliary.PopupWindow;
+import Auxiliary.BankUser;
+import SQL.*;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Popup;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
