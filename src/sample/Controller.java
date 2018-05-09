@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Popup;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -168,6 +169,7 @@ public class Controller {
         db.DepositMoney(dep_id.getText(), dep_f.getText());
         dep_id.clear(); dep_f.clear();
         initialize();
+        PopupWindow.display_error();
     }
 
     @FXML
@@ -196,6 +198,8 @@ public class Controller {
             bankSearchData.add(bu);
         }
         SearchTableView.setItems(bankSearchData);
+        boolean cando = PopupWindow.display_confirmation();
+        System.out.println((cando));
     }
 
 }
