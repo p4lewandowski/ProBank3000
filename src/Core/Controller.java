@@ -145,41 +145,92 @@ public class Controller {
     }
 
     @FXML
-    private void add_user(ActionEvent event) throws SQLException {
-        db.Add_User(add_n.getText(), add_sn.getText(), add_c.getText(), add_cst.getText(),
-                add_cn.getText(), add_p.getText(), add_num.getText(), add_f.getText());
-        add_n.clear(); add_sn.clear(); add_c.clear(); add_cst.clear(); add_cn.clear();
-        add_p.clear(); add_num.clear(); add_cn.clear(); add_f.clear();
-        initialize();
+    private void add_user(ActionEvent event){
+        boolean cando = PopupWindow.display_confirmation();
+        if(cando) {
+            try {
+                db.Add_User(add_n.getText(), add_sn.getText(), add_c.getText(), add_cst.getText(),
+                        add_cn.getText(), add_p.getText(), add_num.getText(), add_f.getText());
+                add_n.clear();
+                add_sn.clear();
+                add_c.clear();
+                add_cst.clear();
+                add_cn.clear();
+                add_p.clear();
+                add_num.clear();
+                add_cn.clear();
+                add_f.clear();
+                initialize();
+                PopupWindow.display_acceptance();
+            }catch(SQLException e){
+                PopupWindow.display_error();
+            }
+        }
     }
 
     @FXML
-    private void del_user(ActionEvent event) throws SQLException {
-        db.DeleteUser(del_id.getText());
-        del_id.clear();
-        initialize();
+    private void del_user(ActionEvent event){
+        boolean cando = PopupWindow.display_confirmation();
+        if(cando) {
+            try {
+                boolean isNotEmpty = db.DeleteUser(del_id.getText());
+                del_id.clear();
+                initialize();
+                if(isNotEmpty) { PopupWindow.display_acceptance();}
+            }catch(SQLException e){
+                PopupWindow.display_error();
+            }
+        }
     }
 
     @FXML
-    private void withdraw_money(ActionEvent event) throws SQLException {
-        db.WithdrawMoney(with_id.getText(), with_f.getText());
-        with_id.clear(); with_f.clear();
-        initialize();
+    private void withdraw_money(ActionEvent event){
+        boolean cando = PopupWindow.display_confirmation();
+        if(cando) {
+            try {
+                boolean isNotEmpty = db.WithdrawMoney(with_id.getText(), with_f.getText());
+                with_id.clear();
+                with_f.clear();
+                initialize();
+                if(isNotEmpty) { PopupWindow.display_acceptance();}
+            }catch (SQLException e)
+            {
+                PopupWindow.display_error();
+            }
+        }
     }
 
     @FXML
     private void deposit_money(ActionEvent event) throws SQLException {
-        db.DepositMoney(dep_id.getText(), dep_f.getText());
-        dep_id.clear(); dep_f.clear();
-        initialize();
-        PopupWindow.display_error();
+        boolean cando = PopupWindow.display_confirmation();
+        if(cando) {
+            try {
+                boolean isNotEmpty = db.DepositMoney(dep_id.getText(), dep_f.getText());
+                dep_id.clear();
+                dep_f.clear();
+                initialize();
+                if(isNotEmpty) { PopupWindow.display_acceptance();}
+            }catch (SQLException e){
+                PopupWindow.display_error();
+            }
+        }
     }
 
     @FXML
     private void transfer_money(ActionEvent event) throws SQLException {
-        db.TransferMoney(tr_id_s.getText(), tr_id_r.getText(), tr_f.getText());
-        tr_id_s.clear(); tr_id_r.clear(); tr_f.clear();
-        initialize();
+        boolean cando = PopupWindow.display_confirmation();
+        if(cando) {
+            try {
+                boolean isNotEmpty = db.TransferMoney(tr_id_s.getText(), tr_id_r.getText(), tr_f.getText());
+                tr_id_s.clear();
+                tr_id_r.clear();
+                tr_f.clear();
+                //initialize();
+                if(isNotEmpty) { PopupWindow.display_acceptance();}
+            }catch(SQLException e){
+                PopupWindow.display_error();
+            }
+        }
     }
 
     @FXML
@@ -201,8 +252,6 @@ public class Controller {
             bankSearchData.add(bu);
         }
         SearchTableView.setItems(bankSearchData);
-        boolean cando = PopupWindow.display_confirmation();
-        System.out.println((cando));
     }
 
 }

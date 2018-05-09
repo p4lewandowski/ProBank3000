@@ -69,7 +69,50 @@ public class PopupWindow {
         return answer.getValue();
     }
 
+    public static void display_information()
+    {
+        Stage popupwindow=new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setResizable(false);
+        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "information_icon.png" )));
+
+        popupwindow.setTitle("Information");
+        Label label1= new Label("No changes to the\ndatabase were made.");
+        Button button1= new Button("close");
 
 
+        button1.setOnAction(e -> popupwindow.close());
+
+        VBox layout= new VBox(10);
+        layout.getChildren().addAll(label1, button1);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene1= new Scene(layout, 160, 100);
+        popupwindow.setScene(scene1);
+        popupwindow.showAndWait();
+
+    }
+
+    public static void display_acceptance()
+    {
+        Stage popupwindow=new Stage();
+        popupwindow.initModality(Modality.APPLICATION_MODAL);
+        popupwindow.setResizable(false);
+        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "acceptance_icon.png" )));
+
+        popupwindow.setTitle("Confirmation");
+        Label label1= new Label("Process accomplished.");
+        Button button1= new Button("close");
+
+
+        button1.setOnAction(e -> popupwindow.close());
+
+        VBox layout= new VBox(10);
+        layout.getChildren().addAll(label1, button1);
+        layout.setAlignment(Pos.CENTER);
+        Scene scene1= new Scene(layout, 160, 60);
+        popupwindow.setScene(scene1);
+        popupwindow.showAndWait();
+
+    }
 
 }

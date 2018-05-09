@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ProBank3000.iml" afterPath="$PROJECT_DIR$/ProBank3000.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/App_logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/BankUser.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/Controller.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/DB_CONNECTOR.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/Logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/Main.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/MutableBool.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/PopupWindow.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/ProBank3000_GUI.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/anonymous-icon.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/confirmation_icon.ico" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/error_icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/ojdbc8.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProBank3000/sample/sqlbuilder-2.1.7.jar" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/App_logo.png" afterPath="$PROJECT_DIR$/src/Auxiliary/App_logo.png" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BankUser.java" afterPath="$PROJECT_DIR$/src/Auxiliary/BankUser.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" afterPath="$PROJECT_DIR$/src/Core/Controller.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/DB_CONNECTOR.java" afterPath="$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Logo.png" afterPath="$PROJECT_DIR$/src/Auxiliary/Logo.png" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" afterPath="$PROJECT_DIR$/src/Core/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MutableBool.java" afterPath="$PROJECT_DIR$/src/Auxiliary/MutableBool.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/PopupWindow.java" afterPath="$PROJECT_DIR$/src/Auxiliary/PopupWindow.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ProBank3000_GUI.fxml" afterPath="$PROJECT_DIR$/src/Core/ProBank3000_GUI.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/sample/anonymous-icon.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/sample/confirmation_icon.ico" afterPath="$PROJECT_DIR$/src/Auxiliary/confirmation_icon.ico" />
-      <change beforePath="$PROJECT_DIR$/src/sample/error_icon.png" afterPath="$PROJECT_DIR$/src/Auxiliary/error_icon.png" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ojdbc8.jar" afterPath="$PROJECT_DIR$/src/SQL/ojdbc8.jar" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sqlbuilder-2.1.7.jar" afterPath="$PROJECT_DIR$/src/SQL/sqlbuilder-2.1.7.jar" />
+      <change beforePath="$PROJECT_DIR$/src/Auxiliary/PopupWindow.java" afterPath="$PROJECT_DIR$/src/Auxiliary/PopupWindow.java" />
+      <change beforePath="$PROJECT_DIR$/src/Core/Controller.java" afterPath="$PROJECT_DIR$/src/Core/Controller.java" />
+      <change beforePath="$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java" afterPath="$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,11 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DB_CONNECTOR.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DB_CONNECTOR.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="255">
+              <caret line="47" column="90" lean-forward="true" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,39 +79,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PopupWindow.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Auxiliary/PopupWindow.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MutableBool.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Auxiliary/MutableBool.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding>
-                <element signature="e#114#115#0" expanded="true" />
-                <element signature="e#148#149#0" expanded="true" />
-                <element signature="e#181#182#0" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Core/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+            <state relative-caret-position="280">
+              <caret line="188" column="19" lean-forward="true" selection-start-line="188" selection-start-column="19" selection-end-line="188" selection-end-column="19" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#5653#5654#0" expanded="true" />
                 <element signature="e#5682#5683#0" expanded="true" />
               </folding>
@@ -198,8 +145,8 @@
       <find>userId</find>
       <find>de</find>
       <find>show</find>
-      <find>rs</find>
       <find>bankus</find>
+      <find>rs</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -225,10 +172,10 @@
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/DB_CONNECTOR.java" />
         <option value="$PROJECT_DIR$/src/sample/PopupWindow.java" />
-        <option value="$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java" />
         <option value="$PROJECT_DIR$/src/Core/Main.java" />
         <option value="$PROJECT_DIR$/src/Auxiliary/PopupWindow.java" />
         <option value="$PROJECT_DIR$/src/Core/Controller.java" />
+        <option value="$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java" />
       </list>
     </option>
   </component>
@@ -670,7 +617,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -681,6 +628,7 @@
         <watch expression="rs" />
         <watch expression="rs" />
         <watch expression="sRes" />
+        <watch expression="rs" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -704,6 +652,7 @@
         <state relative-caret-position="1224">
           <caret line="83" column="10" lean-forward="false" selection-start-line="83" selection-start-column="10" selection-end-line="83" selection-end-column="10" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -725,6 +674,7 @@
         <state relative-caret-position="1428">
           <caret line="95" column="51" lean-forward="false" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="51" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -743,6 +693,7 @@
         <state relative-caret-position="425">
           <caret line="29" column="46" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -771,6 +722,7 @@
         <state relative-caret-position="425">
           <caret line="29" column="46" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -799,6 +751,7 @@
         <state relative-caret-position="425">
           <caret line="29" column="46" lean-forward="true" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -837,6 +790,7 @@
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -855,6 +809,7 @@
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
           </folding>
@@ -943,25 +898,12 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java">
+    <entry file="file://$PROJECT_DIR$/src/Core/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        <state relative-caret-position="391">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Auxiliary/MutableBool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="e#114#115#0" expanded="true" />
-            <element signature="e#148#149#0" expanded="true" />
-            <element signature="e#181#182#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -976,20 +918,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Core/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/Auxiliary/MutableBool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="34">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#114#115#0" expanded="false" />
+            <element signature="e#148#149#0" expanded="false" />
+            <element signature="e#181#182#0" expanded="false" />
+            <element signature="e#209#210#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Auxiliary/information_icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Auxiliary/PopupWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="1317">
+          <caret line="109" column="53" lean-forward="true" selection-start-line="109" selection-start-column="53" selection-end-line="109" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -998,11 +948,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Core/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        <state relative-caret-position="280">
+          <caret line="188" column="19" lean-forward="true" selection-start-line="188" selection-start-column="19" selection-end-line="188" selection-end-column="19" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#5653#5654#0" expanded="true" />
             <element signature="e#5682#5683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SQL/DB_CONNECTOR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="47" column="90" lean-forward="true" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

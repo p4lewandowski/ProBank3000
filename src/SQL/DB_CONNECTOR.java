@@ -1,4 +1,5 @@
 package SQL;
+import Auxiliary.PopupWindow;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import java.sql.*;
@@ -44,7 +45,7 @@ public class DB_CONNECTOR {
     public ResultSet Show_All(){
         try {
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from bank_users");
+            ResultSet rs = stmt.executeQuery("select * from bank_users ORDER BY USER_ID");
             return rs;
         } catch(SQLException e){
             e.printStackTrace();
@@ -59,33 +60,47 @@ public class DB_CONNECTOR {
                     " ADDRESS_NUMBER, PESEL, PHONE_NUMBER, FUNDS) VALUES ('" + NAME + "', '" + SURNAME + "', '"
                 + ADDRESS_CITY + "', '" + ADDRESS_STREET + "', '" + ADDRESS_NUMBER + "', "
                 + PESEL + ", '" + PHONE_NUMBER + "', " + FUNDS + ")";
-        //System.out.println(selectQuery);
-        ResultSet rsAdd = stmt.executeQuery(selectQuery);
+        stmt.executeQuery(selectQuery);
 
     }
 
-    public void DeleteUser(String delID) throws SQLException{
+    public boolean DeleteUser(String delID) throws SQLException{
         Statement stmt = conn.createStatement();
         String selectQuery = null;
         selectQuery = "DELETE FROM BANK_USERS WHERE USER_ID = " + delID;
-        stmt.executeQuery(selectQuery);
+        ResultSet rsDelete = stmt.executeQuery(selectQuery);
+        if (!rsDelete.isBeforeFirst() ) {
+            PopupWindow.display_information();
+            return false;
+        }
+        return true;
     }
 
-    public void WithdrawMoney(String uID, String uFunds) throws SQLException{
+    public boolean WithdrawMoney(String uID, String uFunds) throws SQLException{
         Statement stmt = conn.createStatement();
         String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
                 + " WHERE USER_ID = " + uID;
-        stmt.executeQuery(selectQuery);
+        ResultSet rsWithdraw = stmt.executeQuery(selectQuery);
+        if (!rsWithdraw.isBeforeFirst() ) {
+            PopupWindow.display_information();
+            return false;
+        }
+        return true;
     }
 
-    public void DepositMoney(String uID, String uFunds) throws SQLException{
+    public boolean DepositMoney(String uID, String uFunds) throws SQLException{
         Statement stmt = conn.createStatement();
         String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
                 + " WHERE USER_ID = " + uID;
-        stmt.executeQuery(selectQuery);
+        ResultSet rsDeposit = stmt.executeQuery(selectQuery);
+        if (!rsDeposit.isBeforeFirst() ) {
+            PopupWindow.display_information();
+            return false;
+        }
+        return true;
     }
 
-    public void TransferMoney(String uIDs, String uIDr, String uFunds) throws SQLException{
+    public boolean TransferMoney(String uIDs, String uIDr, String uFunds) throws SQLException{
         Statement stmt = conn.createStatement();
         Long availableFunds = null;
         String selectQueryS =  "SELECT FUNDS FROM BANK_USERS WHERE USER_ID = " + uIDs;
@@ -93,18 +108,31 @@ public class DB_CONNECTOR {
         while (rsTransfer.next()) {
             availableFunds = Long.parseLong(rsTransfer.getString(1), 10);
         }
-        if(availableFunds<Long.parseLong(uIDs, 10))
-        {
-            throw new java.sql.SQLException();
+        // Check if not null
+        if (!rsTransfer.isBeforeFirst() ) {
+            PopupWindow.display_error();
+            return false;
         }
-        else
-        {
-            String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
-                    + " WHERE USER_ID = " + uIDr;
-            stmt.executeQuery(selectQuery);
-            selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
-                    + " WHERE USER_ID = " + uIDs;
-            stmt.executeQuery(selectQuery);
+        else {
+            // Check if enough
+            if (availableFunds < Long.parseLong(uIDs, 10)) {
+                throw new java.sql.SQLException();
+            } else {
+                String selectQuery = "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
+                        + " WHERE USER_ID = " + uIDr;
+                rsTransfer = stmt.executeQuery(selectQuery);
+                if (!rsTransfer.isBeforeFirst()) {
+                    PopupWindow.display_information();
+                }
+
+                selectQuery = "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
+                        + " WHERE USER_ID = " + uIDs;
+                rsTransfer = stmt.executeQuery(selectQuery);
+                if (!rsTransfer.isBeforeFirst()) {
+                    PopupWindow.display_information();
+                }
+            }
+            return true;
         }
     }
 
