@@ -15,7 +15,7 @@ public class DB_CONNECTOR {
     }
 
     public boolean Connect() {
-        String dbURL = "jdbc:oracle:thin:db_crea/gaderypoluki@194.182.69.12:1521:xe";
+        String dbURL = "jdbc:oracle:thin:db_crea/ga1de2ry3poluki@194.182.69.12:1521:xe";
         //DriverManager.registerDriver(new oracle.jdbc.OracleDriver()); optional
 
         try {
@@ -53,15 +53,20 @@ public class DB_CONNECTOR {
         }
     }
 
-    public void Add_User(String NAME, String SURNAME,String ADDRESS_CITY,String ADDRESS_STREET, String ADDRESS_NUMBER,
+    public boolean Add_User(String NAME, String SURNAME,String ADDRESS_CITY,String ADDRESS_STREET, String ADDRESS_NUMBER,
                          String PESEL, String PHONE_NUMBER, String FUNDS) throws SQLException{
         Statement stmt = conn.createStatement();
+        if(Long.parseLong(FUNDS, 10) > 1000000000){
+            PopupWindow.display_error();
+            return false;
+        }
         String selectQuery = "INSERT INTO BANK_USERS (NAME, SURNAME, ADDRESS_CITY, ADDRESS_STREET," +
                     " ADDRESS_NUMBER, PESEL, PHONE_NUMBER, FUNDS) VALUES ('" + NAME + "', '" + SURNAME + "', '"
                 + ADDRESS_CITY + "', '" + ADDRESS_STREET + "', '" + ADDRESS_NUMBER + "', "
                 + PESEL + ", '" + PHONE_NUMBER + "', " + FUNDS + ")";
         stmt.executeQuery(selectQuery);
 
+        return true;
     }
 
     public boolean DeleteUser(String delID) throws SQLException{
@@ -78,6 +83,10 @@ public class DB_CONNECTOR {
 
     public boolean WithdrawMoney(String uID, String uFunds) throws SQLException{
         Statement stmt = conn.createStatement();
+        if(Long.parseLong(uFunds, 10) > 1000000000){
+            PopupWindow.display_error();
+            return false;
+        }
         String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
                 + " WHERE USER_ID = " + uID;
         ResultSet rsWithdraw = stmt.executeQuery(selectQuery);
@@ -90,6 +99,10 @@ public class DB_CONNECTOR {
 
     public boolean DepositMoney(String uID, String uFunds) throws SQLException{
         Statement stmt = conn.createStatement();
+        if(Long.parseLong(uFunds, 10) > 1000000000){
+            PopupWindow.display_error();
+            return false;
+        }
         String selectQuery =  "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
                 + " WHERE USER_ID = " + uID;
         ResultSet rsDeposit = stmt.executeQuery(selectQuery);
@@ -105,31 +118,35 @@ public class DB_CONNECTOR {
         Long availableFunds = null;
         String selectQueryS =  "SELECT FUNDS FROM BANK_USERS WHERE USER_ID = " + uIDs;
         ResultSet rsTransfer = stmt.executeQuery(selectQueryS);
-        while (rsTransfer.next()) {
-            availableFunds = Long.parseLong(rsTransfer.getString(1), 10);
-        }
+        long toTransfer = Long.parseLong(uFunds, 10);
         // Check if not null
         if (!rsTransfer.isBeforeFirst() ) {
             PopupWindow.display_error();
             return false;
         }
         else {
+            while (rsTransfer.next()) {
+                availableFunds = Long.parseLong(rsTransfer.getString(1), 10);
+            }
             // Check if enough
-            if (availableFunds < Long.parseLong(uIDs, 10)) {
+            if (availableFunds < toTransfer ||  toTransfer > 1000000000) {
                 throw new java.sql.SQLException();
-            } else {
+            }
+            else {
                 String selectQuery = "UPDATE BANK_USERS SET FUNDS = FUNDS + " + uFunds
                         + " WHERE USER_ID = " + uIDr;
                 rsTransfer = stmt.executeQuery(selectQuery);
                 if (!rsTransfer.isBeforeFirst()) {
-                    PopupWindow.display_information();
+                    PopupWindow.display_error();
+                    return false;
                 }
 
                 selectQuery = "UPDATE BANK_USERS SET FUNDS = FUNDS - " + uFunds
                         + " WHERE USER_ID = " + uIDs;
                 rsTransfer = stmt.executeQuery(selectQuery);
                 if (!rsTransfer.isBeforeFirst()) {
-                    PopupWindow.display_information();
+                    PopupWindow.display_error();
+                    return false;
                 }
             }
             return true;

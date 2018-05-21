@@ -149,7 +149,7 @@ public class Controller {
         boolean cando = PopupWindow.display_confirmation();
         if(cando) {
             try {
-                db.Add_User(add_n.getText(), add_sn.getText(), add_c.getText(), add_cst.getText(),
+                boolean isNotEmpty = db.Add_User(add_n.getText(), add_sn.getText(), add_c.getText(), add_cst.getText(),
                         add_cn.getText(), add_p.getText(), add_num.getText(), add_f.getText());
                 add_n.clear();
                 add_sn.clear();
@@ -161,7 +161,8 @@ public class Controller {
                 add_cn.clear();
                 add_f.clear();
                 initialize();
-                PopupWindow.display_acceptance();
+                if(isNotEmpty) { PopupWindow.display_acceptance();}
+
             }catch(SQLException e){
                 PopupWindow.display_error();
             }
@@ -225,7 +226,7 @@ public class Controller {
                 tr_id_s.clear();
                 tr_id_r.clear();
                 tr_f.clear();
-                //initialize();
+                initialize();
                 if(isNotEmpty) { PopupWindow.display_acceptance();}
             }catch(SQLException e){
                 PopupWindow.display_error();

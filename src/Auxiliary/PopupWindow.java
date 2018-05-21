@@ -15,7 +15,7 @@ public class PopupWindow {
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setResizable(false);
-        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "error_icon.png" )));
+        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "../GraphicalAid/error_icon.png" )));
 
         popupwindow.setTitle("Error");
         Label label1= new Label("Wrong parameters entered");
@@ -39,7 +39,7 @@ public class PopupWindow {
         Stage popupwindow = new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setResizable(false);
-        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "confirmation_icon.ico" )));
+        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "../GraphicalAid/confirmation_icon.ico" )));
 
         popupwindow.setTitle("Confirmation");
         Label label1= new Label("Do you want to proceed?");
@@ -74,7 +74,7 @@ public class PopupWindow {
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setResizable(false);
-        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "information_icon.png" )));
+        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "../GraphicalAid/information_icon.png" )));
 
         popupwindow.setTitle("Information");
         Label label1= new Label("No changes to the\ndatabase were made.");
@@ -97,7 +97,7 @@ public class PopupWindow {
         Stage popupwindow=new Stage();
         popupwindow.initModality(Modality.APPLICATION_MODAL);
         popupwindow.setResizable(false);
-        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "acceptance_icon.png" )));
+        popupwindow.getIcons().add(new Image(PopupWindow.class.getResourceAsStream( "../GraphicalAid/acceptance_icon.png" )));
 
         popupwindow.setTitle("Confirmation");
         Label label1= new Label("Process accomplished.");

@@ -15,7 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("ProBank3000");
         primaryStage.setScene(new Scene(root, 750, 500));
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "../Auxiliary/App_logo.png" )));
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream( "../GraphicalAid/App_logo.png" )));
 
         //primaryStage.initStyle(StageStyle.UNDECORATED);
 
